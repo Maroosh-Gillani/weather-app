@@ -7,24 +7,75 @@ document.addEventListener("DOMContentLoaded", function () {
 			{ mode: "cors" }
 		);
 		const weatherData = await response.json();
-		// console.log(weatherData);
-        const cityName = weatherData.location.name;
+		console.log(weatherData);
+		const cityName = weatherData.location.name;
 		const temperatureCelsius = weatherData.current.temp_c;
+		const feelsLikeCelsius = weatherData.current.feelslike_c;
 		const weatherConditionText = weatherData.current.condition.text;
-        // console.log(temperatureCelsius);
-        // console.log(weatherConditionText);
-        // console.log(cityName);
+		const windSpeed = weatherData.current.gust_kph;
+		const humidity = weatherData.current.humidity;
 
-        document.getElementById("cityName").innerText = cityName;
-        document.getElementById("cityTemp").innerText = `${temperatureCelsius}°C`;
-        document.getElementById("cityConditions").innerText = weatherConditionText;
+		// CHECK IF LOCAL TIME FROM API IS DD/MM OR MM/DD
+		// THIS CAN BE DONE DIRECTLY FROM THE CONSOLE LOG TOMORROW
+		// A GOOD IDEA LATER MIGHT BE TO UPDATE TIME IN REAL TIME
+		const localTime = weatherData.location.localtime;
+		const dateObject = new Date(localTime);
+		const formattedLocalTime = dateObject.toLocaleString();
+
+		console.log(formattedLocalTime);
+
+		document.getElementById("cityName").innerText = cityName;
+		document.getElementById(
+			"cityTemp"
+		).innerText = `${temperatureCelsius} °C`;
+		document.getElementById(
+			"cityFeelsLike"
+		).innerText = `Feels like: ${feelsLikeCelsius} °C`;
+		document.getElementById("cityConditions").innerText =
+			weatherConditionText;
+		document.getElementById(
+			"cityWindSpd"
+		).innerText = `Wind Speed: ${windSpeed} km/h`;
+		document.getElementById(
+			"cityHumidity"
+		).innerText = `Humidity: ${humidity}%`;
+
+		document.getElementById("cityTime").innerText = formattedLocalTime;
 	}
-    // Add more stuff like data for next 3 days
-    // feels like, humidity, chance of rain, wind speed
-    // day, date and time
+
+	// Current day and next 2 days forecast data
+	async function get3DayForecast(city) {
+		const response = await fetch(
+			`https://api.weatherapi.com/v1/forecast.json?key=8c50fbb596814a8a9f7222736233112&q=${city}&days=3`,
+			{ mode: "cors" }
+		);
+		const forecastData = await response.json();
+		console.log(forecastData);
+
+		// Today
+		const currentDay = forecastData.forecast.forecastday[0].day;
+		document.getElementById(
+			"cityAvgTemp"
+		).innerText = `Average Temp: ${currentDay.avgtemp_c} °C`;
+		document.getElementById(
+			"cityMin"
+		).innerText = `Min Temp: ${currentDay.mintemp_c} °C`;
+		document.getElementById(
+			"cityMax"
+		).innerText = `Max Temp: ${currentDay.maxtemp_c} °C`;
+		document.getElementById(
+			"cityRain"
+		).innerText = `Chance of Rain: ${currentDay.daily_chance_of_rain}%`;
+		document.getElementById(
+			"citySnow"
+		).innerText = `Chance of Snow: ${currentDay.daily_chance_of_snow}%`;
+	}
 
 	searchCity.addEventListener("change", function () {
 		const cityName = searchCity.value;
 		getWeatherData(cityName);
+		get3DayForecast(cityName);
 	});
 });
+
+// idea for much later: change bg image depending on temperature (<0 = icy lands etc.)

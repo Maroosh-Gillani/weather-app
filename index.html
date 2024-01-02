@@ -9,10 +9,55 @@
 	</head>
 
 	<body>
-		<h1>The Weather</h1>
-        <input id="search" type="text" placeholder="Enter a city here">
-        <p id="cityName"></p>
-        <p id="cityTemp"></p>
-        <p id="cityConditions"></p>
+		<div class="container">
+			<h1>The Weather</h1>
+			<input id="search" type="text" placeholder="Enter a city here" />
+
+			<div class="currDay">
+				<h2 id="cityTime"></h2>
+				<p id="cityName"></p>
+
+				<p id="cityTemp"></p>
+				<p id="cityFeelsLike"></p>
+				<p id="cityAvgTemp"></p>
+				<p id="cityMin"></p>
+				<p id="cityMax"></p>
+
+				<p id="cityConditions"></p>
+
+				<p id="cityWindSpd"></p>
+
+				<p id="cityHumidity"></p>
+
+				<p id="cityRain"></p>
+				<p id="citySnow"></p>
+			</div>
+
+			<div class="forecast">
+				<div class="nextDay1">
+					<h3 id="date"></h3>
+					<p id="cityAvgTemp"></p>
+					<p id="cityMin"></p>
+					<p id="cityMax"></p>
+					<p id="cityConditions"></p>
+				</div>
+				<div class="nextDay2">
+					<h3 id="date"></h3>
+					<p id="cityAvgTemp"></p>
+					<p id="cityMin"></p>
+					<p id="cityMax"></p>
+					<p id="cityConditions"></p>
+				</div>
+			</div>
+
+			<div class="footer">
+				<p>
+					Powered by
+					<a href="https://www.weatherapi.com/" title="Weather API"
+						>WeatherAPI.com
+					</a>
+				</p>
+			</div>
+		</div>
 	</body>
 </html>
