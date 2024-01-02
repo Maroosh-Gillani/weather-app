@@ -69,6 +69,40 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById(
 			"citySnow"
 		).innerText = `Chance of Snow: ${currentDay.daily_chance_of_snow}%`;
+
+		// Next day forecast
+		const nextDate = forecastData.forecast.forecastday[1].date;
+		const nextDay = forecastData.forecast.forecastday[1].day;
+		document.querySelector(".nextDay1 #date").innerText = nextDate;
+		document.querySelector(
+			".nextDay1 #cityAvgTemp"
+		).innerText = `Average Temp: ${nextDay.avgtemp_c} °C`;
+		document.querySelector(
+			".nextDay1 #cityMin"
+		).innerText = `Min Temp: ${nextDay.mintemp_c} °C`;
+		document.querySelector(
+			".nextDay1 #cityMax"
+		).innerText = `Max Temp: ${nextDay.maxtemp_c} °C`;
+		document.querySelector(
+			".nextDay1 #cityConditions"
+		).innerText = `${nextDay.condition.text}`;
+
+		// Next next day forecast
+		const nextNextDate = forecastData.forecast.forecastday[2].date;
+		const nextNextDay = forecastData.forecast.forecastday[2].day;
+		document.querySelector(".nextDay2 #date").innerText = nextNextDate;
+		document.querySelector(
+			".nextDay2 #cityAvgTemp"
+		).innerText = `Average Temp: ${nextNextDay.avgtemp_c} °C`;
+		document.querySelector(
+			".nextDay2 #cityMin"
+		).innerText = `Min Temp: ${nextNextDay.mintemp_c} °C`;
+		document.querySelector(
+			".nextDay2 #cityMax"
+		).innerText = `Max Temp: ${nextNextDay.maxtemp_c} °C`;
+		document.querySelector(
+			".nextDay2 #cityConditions"
+		).innerText = `${nextNextDay.condition.text}`;
 	}
 
 	searchCity.addEventListener("change", function () {
