@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		// A GOOD IDEA LATER MIGHT BE TO UPDATE TIME IN REAL TIME
 		const localTime = weatherData.location.localtime;
 		const dateObject = new Date(localTime);
-		const formattedLocalTime = dateObject.toLocaleString();
+		const formattedLocalTime = dateObject.toLocaleDateString();
 
 		console.log(formattedLocalTime);
 
@@ -110,6 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		getWeatherData(cityName);
 		get3DayForecast(cityName);
 	});
+
+	// For css styling
+	getWeatherData("toronto");
+	get3DayForecast("toronto");
 });
 
 // idea for much later: change bg image depending on temperature (<0 = icy lands etc.)
+// try making dates consistent
+// TRY TO NODEJS-IFY THIS PROJECT
