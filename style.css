@@ -26,7 +26,7 @@ html {
 }
 
 .currDay {
-	background-color: #1b416c;
+	background-color: #1f4979;
 	grid-column: 1;
 	grid-row: 2;
 	display: grid;
@@ -36,7 +36,7 @@ html {
 
 .currDay .top {
 	grid-column: 1 / span 2;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .currDay .left {
@@ -76,14 +76,35 @@ html {
 }
 
 .nextDay1 {
-	background-color: aqua;
+	background-color: #183a61;
 	grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .nextDay2 {
-	background-color: blue;
+	background-color: #143051;
 	grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
 }
+
+.nextDayData {
+    border: 2px solid #e4e7f0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
 
 .footer {
 	background-color: red;

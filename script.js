@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const currentDay = forecastData.forecast.forecastday[0].day;
 		document.getElementById(
 			"cityAvgTemp"
-		).innerText = `Average Temp: ${currentDay.avgtemp_c} °C`;
+		).innerText = `Average: ${currentDay.avgtemp_c} °C`;
 		document.getElementById(
 			"cityMin"
 		).innerText = `Low: ${currentDay.mintemp_c} °C`;
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector(".nextDay1 #date").innerText = nextDate;
 		document.querySelector(
 			".nextDay1 #cityAvgTemp"
-		).innerText = `Average Temp: ${nextDay.avgtemp_c} °C`;
+		).innerText = `Average: ${nextDay.avgtemp_c} °C`;
 		document.querySelector(
 			".nextDay1 #cityMin"
 		).innerText = `Low: ${nextDay.mintemp_c} °C`;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector(".nextDay2 #date").innerText = nextNextDate;
 		document.querySelector(
 			".nextDay2 #cityAvgTemp"
-		).innerText = `Average Temp: ${nextNextDay.avgtemp_c} °C`;
+		).innerText = `Average: ${nextNextDay.avgtemp_c} °C`;
 		document.querySelector(
 			".nextDay2 #cityMin"
 		).innerText = `Low: ${nextNextDay.mintemp_c} °C`;
