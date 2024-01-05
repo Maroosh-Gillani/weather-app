@@ -118,4 +118,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // idea for much later: change bg image depending on temperature (<0 = icy lands etc.)
 // try making dates consistent
+// Get icons for weather conditions from api if it has them
 // TRY TO NODEJS-IFY THIS PROJECT

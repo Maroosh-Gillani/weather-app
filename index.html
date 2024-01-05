@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="script.js"></script>
 		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Poppins"
+		/>
 		<title>Weather App</title>
 	</head>
 
@@ -12,27 +16,36 @@
 		<div class="container">
 			<div class="header">
 				<h1>The Weather</h1>
-			<input id="search" type="text" placeholder="Enter a city here" />
+				<input
+					id="search"
+					type="text"
+					placeholder="Enter a city here"
+				/>
 			</div>
 
 			<div class="currDay">
-				<h2 id="cityTime"></h2>
-				<p id="cityName"></p>
+				<div class="top">
+					<h2 id="cityName"></h2>
+					<h2 id="cityTime"></h2>
+				</div>
 
-				<p id="cityTemp"></p>
-				<p id="cityFeelsLike"></p>
-				<p id="cityAvgTemp"></p>
-				<p id="cityMin"></p>
-				<p id="cityMax"></p>
+				<div class="left">
+					<div class="temperature">
+						<p id="cityTemp"></p>
+						<p id="cityFeelsLike"></p>
+					</div>
+					<p id="cityAvgTemp"></p>
+					<p id="cityMin"></p>
+					<p id="cityMax"></p>
+					<p id="cityConditions"></p>
+				</div>
 
-				<p id="cityConditions"></p>
-
-				<p id="cityWindSpd"></p>
-
-				<p id="cityHumidity"></p>
-
-				<p id="cityRain"></p>
-				<p id="citySnow"></p>
+				<div class="right">
+					<p id="cityWindSpd"></p>
+					<p id="cityHumidity"></p>
+					<p id="cityRain"></p>
+					<p id="citySnow"></p>
+				</div>
 			</div>
 
 			<div class="forecast">

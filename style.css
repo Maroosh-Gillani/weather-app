@@ -1,51 +1,80 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body, html {
-    height: 100%; 
+body,
+html {
+	height: 100%;
+	color: #e4e7f0;
 }
 
 .container {
-    min-height: 100vh; 
-    text-align: center;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto 1fr auto; 
+	min-height: 100vh;
+	text-align: center;
+	font-family: "Poppins", "Franklin Gothic Medium", "Arial Narrow", Arial,
+		sans-serif;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-rows: auto 1fr auto;
 }
 
 .header {
-    background-color: blueviolet;
-    grid-column: 1 / span 2;
+	background-color: blueviolet;
+	grid-column: 1 / span 2;
 }
 
 .currDay {
-    background-color: green;
-    grid-column: 1;
-    grid-row: 2;
+	background-color: #1b416c;
+	grid-column: 1;
+	grid-row: 2;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: auto 1fr;
+}
+
+.currDay .top {
+	grid-column: 1 / span 2;
+}
+
+.currDay .left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	font-size: 1.25rem;
+	margin: 1.5rem;
+	gap: 1rem;
+}
+
+#cityTemp {
+	align-self: center;
+	font-size: 2.75rem;
+	font-weight: bold;
+}
+#cityFeelsLike {
+    font-size: 1rem;
 }
 
 .forecast {
-    grid-column: 2;
-    display: grid;
-    grid-row: 1fr 1fr;
+	grid-column: 2;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
 }
 
 .nextDay1 {
-    background-color: aqua;
-    grid-row: 1;
+	background-color: aqua;
+	grid-row: 1;
 }
 
 .nextDay2 {
-    background-color: blue;
-    grid-row: 2; 
+	background-color: blue;
+	grid-row: 2;
 }
 
 .footer {
-    background-color: red;
-    grid-column: 1 / span 2;
-    grid-row: 3;
+	background-color: red;
+	grid-column: 1 / span 2;
+	grid-row: 3;
 }
