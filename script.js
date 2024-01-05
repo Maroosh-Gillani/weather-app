@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		).innerText = `Average Temp: ${currentDay.avgtemp_c} °C`;
 		document.getElementById(
 			"cityMin"
-		).innerText = `Min Temp: ${currentDay.mintemp_c} °C`;
+		).innerText = `Low: ${currentDay.mintemp_c} °C`;
 		document.getElementById(
 			"cityMax"
-		).innerText = `Max Temp: ${currentDay.maxtemp_c} °C`;
+		).innerText = `High: ${currentDay.maxtemp_c} °C`;
 		document.getElementById(
 			"cityRain"
 		).innerText = `Chance of Rain: ${currentDay.daily_chance_of_rain}%`;
@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		).innerText = `Average Temp: ${nextDay.avgtemp_c} °C`;
 		document.querySelector(
 			".nextDay1 #cityMin"
-		).innerText = `Min Temp: ${nextDay.mintemp_c} °C`;
+		).innerText = `Low: ${nextDay.mintemp_c} °C`;
 		document.querySelector(
 			".nextDay1 #cityMax"
-		).innerText = `Max Temp: ${nextDay.maxtemp_c} °C`;
+		).innerText = `High: ${nextDay.maxtemp_c} °C`;
 		document.querySelector(
 			".nextDay1 #cityConditions"
 		).innerText = `${nextDay.condition.text}`;
@@ -96,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		).innerText = `Average Temp: ${nextNextDay.avgtemp_c} °C`;
 		document.querySelector(
 			".nextDay2 #cityMin"
-		).innerText = `Min Temp: ${nextNextDay.mintemp_c} °C`;
+		).innerText = `Low: ${nextNextDay.mintemp_c} °C`;
 		document.querySelector(
 			".nextDay2 #cityMax"
-		).innerText = `Max Temp: ${nextNextDay.maxtemp_c} °C`;
+		).innerText = `High: ${nextNextDay.maxtemp_c} °C`;
 		document.querySelector(
 			".nextDay2 #cityConditions"
 		).innerText = `${nextNextDay.condition.text}`;
