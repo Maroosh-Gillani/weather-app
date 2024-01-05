@@ -21,8 +21,19 @@ html {
 }
 
 .header {
-	background-color: blueviolet;
+	background-color: #0f263f;
 	grid-column: 1 / span 2;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header #search {
+   appearance: none;
+   border: none;
+   outline: none;
+   padding: 0.5rem;
+   border-radius: 1rem;
 }
 
 .currDay {
@@ -57,7 +68,6 @@ html {
 #cityFeelsLike {
     font-size: 1rem;
 }
-
 .currDay .right {
     display: flex;
     flex-direction: column;
@@ -101,13 +111,27 @@ html {
     flex-direction: column;
     align-items: flex-start;
     width: fit-content;
-    padding: 0.25rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
 }
 
+#nextIcon {
+    align-self: center;
+}
+
+#nextNextIcon {
+    align-self: center;
+}
 
 .footer {
-	background-color: red;
+	background-color: #0f263f;
 	grid-column: 1 / span 2;
 	grid-row: 3;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: inherit;
 }

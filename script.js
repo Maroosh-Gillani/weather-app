@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		).innerText = `Humidity: ${humidity}%`;
 
 		document.getElementById("cityTime").innerText = formattedLocalTime;
+
+		const currWeatherIcon = weatherData.current.condition.icon;
+		const currWeatherIconElem = document.getElementById("currIcon");
+		currWeatherIconElem.src = `https:${currWeatherIcon}`;
 	}
 
 	// Current day and next 2 days forecast data
@@ -87,6 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			".nextDay1 #cityConditions"
 		).innerText = `${nextDay.condition.text}`;
 
+		const nextIcon = forecastData.forecast.forecastday[1].day.condition.icon;
+		const nextIconElem = document.getElementById("nextIcon");
+		nextIconElem.src = `https:${nextIcon}`;
+
 		// Next next day forecast
 		const nextNextDate = forecastData.forecast.forecastday[2].date;
 		const nextNextDay = forecastData.forecast.forecastday[2].day;
@@ -103,6 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector(
 			".nextDay2 #cityConditions"
 		).innerText = `${nextNextDay.condition.text}`;
+
+		const nextNextIcon = forecastData.forecast.forecastday[2].day.condition.icon;
+		const nextNextIconElem = document.getElementById("nextNextIcon");
+		nextNextIconElem.src = `https:${nextNextIcon}`;
+		
 	}
 
 	searchCity.addEventListener("change", function () {
@@ -118,5 +131,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // idea for much later: change bg image depending on temperature (<0 = icy lands etc.)
 // try making dates consistent
-// Get icons for weather conditions from api if it has them
+// add error checking on wrong searches
 // TRY TO NODEJS-IFY THIS PROJECT
