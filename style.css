@@ -7,7 +7,7 @@
 body,
 html {
 	height: 100%;
-	color: #e4e7f0;
+	color: rgb(228, 231, 240);
 }
 
 .container {
@@ -21,23 +21,23 @@ html {
 }
 
 .header {
-	background-color: #0f263f;
+	background-color: rgb(15, 38, 63);
 	grid-column: 1 / span 2;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
 }
 
 .header #search {
-   appearance: none;
-   border: none;
-   outline: none;
-   padding: 0.5rem;
-   border-radius: 1rem;
+	appearance: none;
+	border: none;
+	outline: none;
+	padding: 0.5rem;
+	border-radius: 1rem;
 }
 
 .currDay {
-	background-color: #1f4979;
+	background-color: rgba(31, 73, 121, 0.7);
 	grid-column: 1;
 	grid-row: 2;
 	display: grid;
@@ -47,7 +47,7 @@ html {
 
 .currDay .top {
 	grid-column: 1 / span 2;
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .currDay .left {
@@ -66,17 +66,17 @@ html {
 	font-weight: bold;
 }
 #cityFeelsLike {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 .currDay .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 1.5rem;
-    gap: 0.5rem;
-    font-size: 1rem;
-    font-style: italic;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 1.5rem;
+	gap: 0.5rem;
+	font-size: 1rem;
+	font-style: italic;
 }
 
 .forecast {
@@ -86,52 +86,65 @@ html {
 }
 
 .nextDay1 {
-	background-color: #183a61;
+	background-color: rgba(24, 58, 97, 0.8);
 	grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25rem;
 }
 
 .nextDay2 {
-	background-color: #143051;
+	background-color: rgba(20, 48, 81, 0.8);
 	grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25rem;
 }
 
 .nextDayData {
-    border: 2px solid #e4e7f0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: fit-content;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+	border: 2px solid rgb(228, 231, 240);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: fit-content;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
 }
 
 #nextIcon {
-    align-self: center;
+	align-self: center;
 }
 
 #nextNextIcon {
-    align-self: center;
+	align-self: center;
 }
 
 .footer {
-	background-color: #0f263f;
+	background-color: rgb(15, 38, 63);
 	grid-column: 1 / span 2;
 	grid-row: 3;
-    padding: 0.5rem;
-    font-size: 0.75rem;
+	padding: 0.5rem;
+	font-size: 0.75rem;
 }
 
 .footer a {
-    text-decoration: none;
-    color: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+.cold-bg {
+	background-image: url("images/cold.jpg");
+    width: 100%;
+}
+
+.mild-bg {
+	background-image: url("images/mild.jpg");
+}
+
+.hot-bg {
+	background-image: url("images/hot.jpg");
 }

@@ -1,6 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const searchCity = document.querySelector("#search");
 
+	function applyBackground(temp) {
+		const container = document.querySelector(".container");
+
+		container.classList.remove("cold-bg", "mild-bg", "hot-bg");
+
+		if (temp <= 10) {
+			container.classList.add("cold-bg");
+		} else if (temp > 10 && temp < 25) {
+			container.classList.add("mild-bg");
+		} else {
+			container.classList.add("hot-bg");
+		}
+	}
+
 	async function getWeatherData(city) {
 		const response = await fetch(
 			`https://api.weatherapi.com/v1/current.json?key=8c50fbb596814a8a9f7222736233112&q=${city}`,
@@ -15,9 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		const windSpeed = weatherData.current.gust_kph;
 		const humidity = weatherData.current.humidity;
 
-		// CHECK IF LOCAL TIME FROM API IS DD/MM OR MM/DD
-		// THIS CAN BE DONE DIRECTLY FROM THE CONSOLE LOG TOMORROW
-		// A GOOD IDEA LATER MIGHT BE TO UPDATE TIME IN REAL TIME
 		const localTime = weatherData.location.localtime;
 		const dateObject = new Date(localTime);
 		const formattedLocalTime = dateObject.toLocaleDateString();
@@ -45,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		const currWeatherIcon = weatherData.current.condition.icon;
 		const currWeatherIconElem = document.getElementById("currIcon");
 		currWeatherIconElem.src = `https:${currWeatherIcon}`;
+
+		// change background
+		applyBackground(temperatureCelsius);
 	}
 
 	// Current day and next 2 days forecast data
@@ -91,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			".nextDay1 #cityConditions"
 		).innerText = `${nextDay.condition.text}`;
 
-		const nextIcon = forecastData.forecast.forecastday[1].day.condition.icon;
+		const nextIcon =
+			forecastData.forecast.forecastday[1].day.condition.icon;
 		const nextIconElem = document.getElementById("nextIcon");
 		nextIconElem.src = `https:${nextIcon}`;
 
@@ -112,10 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			".nextDay2 #cityConditions"
 		).innerText = `${nextNextDay.condition.text}`;
 
-		const nextNextIcon = forecastData.forecast.forecastday[2].day.condition.icon;
+		const nextNextIcon =
+			forecastData.forecast.forecastday[2].day.condition.icon;
 		const nextNextIconElem = document.getElementById("nextNextIcon");
 		nextNextIconElem.src = `https:${nextNextIcon}`;
-		
 	}
 
 	searchCity.addEventListener("change", function () {
@@ -124,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		get3DayForecast(cityName);
 	});
 
-	// For css styling
+	// Default City
 	getWeatherData("toronto");
 	get3DayForecast("toronto");
 });
