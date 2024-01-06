@@ -16,49 +16,65 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	async function getWeatherData(city) {
-		const response = await fetch(
-			`https://api.weatherapi.com/v1/current.json?key=8c50fbb596814a8a9f7222736233112&q=${city}`,
-			{ mode: "cors" }
-		);
-		const weatherData = await response.json();
-		console.log(weatherData);
-		const cityName = weatherData.location.name;
-		const temperatureCelsius = weatherData.current.temp_c;
-		const feelsLikeCelsius = weatherData.current.feelslike_c;
-		const weatherConditionText = weatherData.current.condition.text;
-		const windSpeed = weatherData.current.gust_kph;
-		const humidity = weatherData.current.humidity;
+		try {
+			const response = await fetch(
+				`https://api.weatherapi.com/v1/current.json?key=8c50fbb596814a8a9f7222736233112&q=${city}`,
+				{ mode: "cors" }
+			);
+			if (!response.ok) {
+				throw new Error("Location not found or other error occurred");
+			}
+			const weatherData = await response.json();
+			console.log(weatherData);
+			const cityName = weatherData.location.name;
+			const temperatureCelsius = weatherData.current.temp_c;
+			const feelsLikeCelsius = weatherData.current.feelslike_c;
+			const weatherConditionText = weatherData.current.condition.text;
+			const windSpeed = weatherData.current.gust_kph;
+			const humidity = weatherData.current.humidity;
 
-		const localTime = weatherData.location.localtime;
-		const dateObject = new Date(localTime);
-		const formattedLocalTime = dateObject.toLocaleDateString();
+			const localTime = weatherData.location.localtime;
+			const dateObject = new Date(localTime);
+			const formattedLocalTime = dateObject.toLocaleDateString();
 
-		console.log(formattedLocalTime);
+			console.log(formattedLocalTime);
 
-		document.getElementById("cityName").innerText = cityName;
-		document.getElementById(
-			"cityTemp"
-		).innerText = `${temperatureCelsius} °C`;
-		document.getElementById(
-			"cityFeelsLike"
-		).innerText = `Feels like: ${feelsLikeCelsius} °C`;
-		document.getElementById("cityConditions").innerText =
-			weatherConditionText;
-		document.getElementById(
-			"cityWindSpd"
-		).innerText = `Wind Speed: ${windSpeed} km/h`;
-		document.getElementById(
-			"cityHumidity"
-		).innerText = `Humidity: ${humidity}%`;
+			document.getElementById("cityName").innerText = cityName;
+			document.getElementById(
+				"cityTemp"
+			).innerText = `${temperatureCelsius} °C`;
+			document.getElementById(
+				"cityFeelsLike"
+			).innerText = `Feels like: ${feelsLikeCelsius} °C`;
+			document.getElementById("cityConditions").innerText =
+				weatherConditionText;
+			document.getElementById(
+				"cityWindSpd"
+			).innerText = `Wind Speed: ${windSpeed} km/h`;
+			document.getElementById(
+				"cityHumidity"
+			).innerText = `Humidity: ${humidity}%`;
 
-		document.getElementById("cityTime").innerText = formattedLocalTime;
+			document.getElementById("cityTime").innerText = formattedLocalTime;
 
-		const currWeatherIcon = weatherData.current.condition.icon;
-		const currWeatherIconElem = document.getElementById("currIcon");
-		currWeatherIconElem.src = `https:${currWeatherIcon}`;
+			const currWeatherIcon = weatherData.current.condition.icon;
+			const currWeatherIconElem = document.getElementById("currIcon");
+			currWeatherIconElem.src = `https:${currWeatherIcon}`;
 
-		// change background
-		applyBackground(temperatureCelsius);
+			// change background
+			applyBackground(temperatureCelsius);
+		} catch (error) {
+			console.error(error);
+			const errorMessage = document.createElement("p");
+			errorMessage.textContent =
+				"Location not found or other error occurred. Please try again.";
+			errorMessage.classList.add("error-message");
+			document.querySelector(".header").appendChild(errorMessage);
+			// You might also want to remove this error message when a new search is performed
+			setTimeout(() => {
+				errorMessage.remove();
+			}, 4000);
+		}
 	}
 
 	// Current day and next 2 days forecast data
