@@ -11,3 +11,4 @@
 * Error handling included for incorrect or unavailable locations.
 Uses asynchronous JavaScript and fetch to obtain weather data and update the UI accordingly.
 * The Weather App can be accessed here: https://maroosh-gillani.github.io/weather-app
+<img width="960" alt="image" src="https://github.com/Maroosh-Gillani/weather-app/assets/76667567/ae9c5b91-c5a7-4732-941c-1596ecd3e6f3">
