@@ -160,7 +160,5 @@ document.addEventListener("DOMContentLoaded", function () {
 	get3DayForecast("toronto");
 });
 
-// idea for much later: change bg image depending on temperature (<0 = icy lands etc.)
 // try making dates consistent
-// add error checking on wrong searches
 // TRY TO NODEJS-IFY THIS PROJECT
